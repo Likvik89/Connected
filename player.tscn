@@ -1,18 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd1lttoilba11"]
+[gd_scene load_steps=7 format=3 uid="uid://dd1lttoilba11"]
 
 [ext_resource type="Texture2D" uid="uid://bthg340anjfs8" path="res://Sprites/Guard_face.png" id="1_7dloy"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_l7m1e"]
+[ext_resource type="Script" path="res://Scripts/movement.gd" id="3_58sb1"]
+[ext_resource type="Texture2D" uid="uid://dgmv51nvcy85o" path="res://Sprites/Bullet.png" id="3_t5dls"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2q4x"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7psra"]
 
-[node name="Player" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="Player" type="Node"]
 script = ExtResource("1_l7m1e")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Ball" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(75, -13)
+shape = SubResource("CircleShape2D_y2q4x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+position = Vector2(75, -13)
+texture = ExtResource("3_t5dls")
+
+[node name="player_character" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("3_58sb1")
+
+[node name="Sprite2D" type="Sprite2D" parent="player_character"]
 texture = ExtResource("1_7dloy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_character"]
 shape = SubResource("CircleShape2D_7psra")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="player_character"]
+zoom = Vector2(2.16, 2.16)

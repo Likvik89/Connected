@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs5c2mtgr5jg"]
+
+[ext_resource type="PackedScene" uid="uid://dd1lttoilba11" path="res://player.tscn" id="1_vqucu"]
+[ext_resource type="Texture2D" uid="uid://k8ptbkph4clv" path="res://Sprites/Background.png" id="2_m51hu"]
+[ext_resource type="Texture2D" uid="uid://bthg340anjfs8" path="res://Sprites/Guard_face.png" id="3_ajop2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asirm"]
+radius = 39.4588
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+texture_repeat = 2
+offset_left = -816.0
+offset_top = -572.0
+offset_right = 1547.0
+offset_bottom = 1054.0
+texture = ExtResource("2_m51hu")
+stretch_mode = 1
+
+[node name="Node2D" parent="." instance=ExtResource("1_vqucu")]
+position = Vector2(424, 232)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="GuardFace" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(257, 187)
+texture = ExtResource("3_ajop2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(256, 189)
+shape = SubResource("CircleShape2D_asirm")

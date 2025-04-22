@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd1lttoilba11"]
+
+[ext_resource type="Texture2D" uid="uid://bthg340anjfs8" path="res://Sprites/Guard_face.png" id="1_7dloy"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_l7m1e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7psra"]
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_l7m1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7dloy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7psra")
+
+[node name="Camera2D" type="Camera2D" parent="."]

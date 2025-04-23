@@ -13,17 +13,18 @@ radius = 8.0
 [node name="Player" type="Node"]
 script = ExtResource("1_l7m1e")
 
-[node name="Ball" type="RigidBody2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -25)
+
+[node name="Ball" type="RigidBody2D" parent="Marker2D"]
 unique_name_in_owner = true
 gravity_scale = 0.0
 lock_rotation = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-position = Vector2(75, -13)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Ball"]
 shape = SubResource("CircleShape2D_y2q4x")
 
-[node name="Sprite2D" type="Sprite2D" parent="Ball"]
-position = Vector2(75, -13)
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D/Ball"]
 texture = ExtResource("3_t5dls")
 
 [node name="player_character" type="RigidBody2D" parent="."]

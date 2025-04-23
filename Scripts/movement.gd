@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-var speed = 100
+var speed = 90
 var maxspeed = 300
 var stoppingpower = 5
 

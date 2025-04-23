@@ -19,7 +19,6 @@ texture = ExtResource("2_m51hu")
 stretch_mode = 1
 
 [node name="Node2D" parent="." instance=ExtResource("1_vqucu")]
-position = Vector2(424, 232)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
